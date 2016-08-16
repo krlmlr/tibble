@@ -10,8 +10,8 @@ as.data.frame.tbl_df <- function(x, row.names = NULL, optional = FALSE, ...) {
 
 #' @rdname formatting
 #' @export
-print.tbl_df <- function(x, ..., n = NULL, width = NULL) {
-  print(trunc_mat(x, n = n, width = width))
+print.tbl_df <- function(x, ..., n = NULL, width = NULL, row_numbers = TRUE) {
+  print(trunc_mat(x, n = n, width = width, row_numbers = row_numbers))
   invisible(x)
 }
 

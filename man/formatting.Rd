@@ -6,9 +6,9 @@
 \alias{trunc_mat}
 \title{Tools for describing matrices}
 \usage{
-\method{print}{tbl_df}(x, ..., n = NULL, width = NULL)
+\method{print}{tbl_df}(x, ..., n = NULL, width = NULL, row_numbers = TRUE)
 
-trunc_mat(x, n = NULL, width = NULL, n_extra = NULL)
+trunc_mat(x, n = NULL, width = NULL, n_extra = NULL, row_numbers = TRUE)
 }
 \arguments{
 \item{x}{Object to show.}
@@ -17,11 +17,13 @@ trunc_mat(x, n = NULL, width = NULL, n_extra = NULL)
 all rows if less than option \code{tibble.print_max}. Otherwise, will
 print \code{tibble.print_min} rows.}
 
-\item{width}{Width of text output to generate. This defaults to NULL, which
-means use \code{getOption("tibble.width")} or (if also NULL)
+\item{width}{Width of text output to generate. This defaults to \code{NULL}, which
+means use \code{getOption("tibble.width")} or (if also \code{NULL})
 \code{getOption("width")}; the latter displays only the columns that
 fit on one screen. You can also set \code{options(tibble.width = Inf)} to
 override this default and always print all columns.}
+
+\item{row_numbers}{Show row numbers? Default: \code{TRUE}}
 }
 \description{
 Tools for describing matrices

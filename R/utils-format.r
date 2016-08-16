@@ -4,11 +4,12 @@
 #' @param n Number of rows to show. If \code{NULL}, the default, will print
 #'   all rows if less than option \code{tibble.print_max}. Otherwise, will
 #'   print \code{tibble.print_min} rows.
-#' @param width Width of text output to generate. This defaults to NULL, which
-#'   means use \code{getOption("tibble.width")} or (if also NULL)
+#' @param width Width of text output to generate. This defaults to \code{NULL}, which
+#'   means use \code{getOption("tibble.width")} or (if also \code{NULL})
 #'   \code{getOption("width")}; the latter displays only the columns that
 #'   fit on one screen. You can also set \code{options(tibble.width = Inf)} to
 #'   override this default and always print all columns.
+#' @param row_numbers Show row numbers? Default: \code{TRUE}
 #' @seealso \link{tibble-package}
 #' @keywords internal
 #' @examples
@@ -25,7 +26,7 @@ NULL
 #' @export
 #' @rdname formatting
 #' @importFrom stats setNames
-trunc_mat <- function(x, n = NULL, width = NULL, n_extra = NULL) {
+trunc_mat <- function(x, n = NULL, width = NULL, n_extra = NULL, row_numbers = TRUE) {
   rows <- nrow(x)
 
   if (is.null(n)) {
@@ -40,7 +41,7 @@ trunc_mat <- function(x, n = NULL, width = NULL, n_extra = NULL) {
   df <- as.data.frame(head(x, n))
   width <- tibble_width(width)
 
-  shrunk <- shrink_mat(df, width, rows, n, star = has_rownames(x))
+  shrunk <- shrink_mat(df, width, rows, n, row_numbers, star = has_rownames(x))
   trunc_info <- list(width = width, rows_total = rows, rows_min = nrow(df),
                      n_extra = n_extra, summary = tbl_sum(x))
 
@@ -48,7 +49,7 @@ trunc_mat <- function(x, n = NULL, width = NULL, n_extra = NULL) {
 }
 
 #' @importFrom stats setNames
-shrink_mat <- function(df, width, rows, n, star) {
+shrink_mat <- function(df, width, rows, n, row_numbers, star) {
   var_types <- vapply(df, type_sum, character(1))
 
   if (ncol(df) == 0 || nrow(df) == 0) {
@@ -116,11 +117,11 @@ shrink_mat <- function(df, width, rows, n, star) {
   }
 
   extra_wide[seq_along(too_wide)] <- too_wide
-  new_shrunk_mat(shrunk, var_types[extra_wide], rows_missing)
+  new_shrunk_mat(shrunk, var_types[extra_wide], rows_missing, row_numbers)
 }
 
-new_shrunk_mat <- function(table, extra, rows_missing = NULL) {
-  list(table = table, extra = extra, rows_missing = rows_missing)
+new_shrunk_mat <- function(table, extra, rows_missing = NULL, row_numbers = TRUE) {
+  list(table = table, extra = extra, rows_missing = rows_missing, row_numbers = row_numbers)
 }
 
 #' @export
@@ -140,7 +141,7 @@ print_summary <- function(x) {
 
 print_table <- function(x) {
   if (!is.null(x$table)) {
-    print(x$table)
+    print(x$table, row.names = x$row_numbers)
   }
 }
 
