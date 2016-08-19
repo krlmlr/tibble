@@ -10,7 +10,7 @@
 |language |en_US:en                     |
 |collate  |en_US.UTF-8                  |
 |tz       |Europe/Zurich                |
-|date     |2016-08-17                   |
+|date     |2016-08-18                   |
 
 ## Packages
 
@@ -24,7 +24,7 @@
 |Rcpp           |   |0.12.6     |2016-07-19 |cran (@0.12.6)                   |
 |rmarkdown      |   |1.0        |2016-07-08 |cran (@1.0)                      |
 |testthat       |   |1.0.2.9000 |2016-08-01 |Github (hadley/testthat@46d15da) |
-|tibble         |   |1.1-7      |2016-08-17 |local (hadley/tibble@NA)         |
+|tibble         |   |1.1-8      |2016-08-18 |local (hadley/tibble@NA)         |
 |withr          |   |1.0.2      |2016-06-20 |cran (@1.0.2)                    |
 
 # Check results
@@ -40,9 +40,8 @@ checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘bigrf’
 
 checking dependencies in R code ... NOTE
-Error in tryCatchOne(expr, names, parentenv, handlers[[1L]]) : 
-  promise already under evaluation: recursive default argument reference or earlier problems?
-Execution halted
+Error occurred during initialization of VM
+Could not allocate metaspace: 1073741824 bytes
 ```
 
 ## cellranger (1.1.0)
@@ -291,26 +290,7 @@ Bug reports: https://github.com/ropensci/spocc/issues
 Maintainer: Hadley Wickham <hadley@rstudio.com>  
 Bug reports: https://github.com/hadley/tidyr/issues
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  
-  3. Failure: dates are spread into columns (#62) (@test-spread.R#90) ------------
-  out$end inherits from `numeric` not `Date`.
-  
-  
-  testthat results ================================================================
-  OK: 190 SKIPPED: 0 FAILED: 3
-  1. Failure: factors are spread into columns (#35) (@test-spread.R#41) 
-  2. Failure: dates are spread into columns (#62) (@test-spread.R#89) 
-  3. Failure: dates are spread into columns (#62) (@test-spread.R#90) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## wand (0.2.0)
 Maintainer: Bob Rudis <bob@rud.is>  
