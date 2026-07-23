@@ -18,7 +18,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/tidyverse/tibble/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/tidyverse/tibble/blob/main/DESCRIPTION)
 
 Müller K, Wickham H (2026). *tibble: Simple Data Frames*. R package
 version 3.3.1.9019, <https://tibble.tidyverse.org/>.
