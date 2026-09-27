@@ -1,5 +1,39 @@
 # Changelog
 
+## tibble 3.3.1.9030
+
+- Refactor(ci): Serve the revdep scripts with the actions instead of
+  copying them (cynkra/cynkratemplate#149).
+
+- Feat(ci): Report coverage on pull requests from this repository
+  (cynkra/cynkratemplate#146).
+
+- Ci: Bound every job with `timeout-minutes`
+  (cynkra/cynkratemplate#144).
+
+- Fix(revdep2): Let a slice with no packages check nothing instead of
+  failing (cynkra/cynkratemplate#150).
+
+- Feat: Build a binary package in every check job and share it as an
+  artifact (cynkra/cynkratemplate#141).
+
+- Fix(ci): Collect the fleet’s workflow fixes after the move to central
+  actions (cynkra/cynkratemplate#139).
+
+## tibble 3.3.1.9029
+
+### Chore
+
+- Update `@rstudio.com` author emails to `@posit.co`
+  ([@krlmlr](https://github.com/krlmlr),
+  [\#1699](https://github.com/tidyverse/tibble/issues/1699)).
+
+### Documentation
+
+- Adopt the shared README rendering configuration
+  ([@krlmlr](https://github.com/krlmlr),
+  [\#1700](https://github.com/tidyverse/tibble/issues/1700)).
+
 ## tibble 3.3.1.9028
 
 ### Chore
