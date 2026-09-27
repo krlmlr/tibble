@@ -146,6 +146,6 @@ tribble(
 The tibble print method draws inspiration from
 [data.table](https://rdatatable.gitlab.io/data.table), and
 [frame](https://github.com/patperry/r-frame). Like
-`data.table::data.table()`,
+[`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html),
 [`tibble()`](https://tibble.tidyverse.org/dev/reference/tibble.md)
 doesn’t change column names and doesn’t use rownames.
