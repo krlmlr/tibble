@@ -1,5 +1,13 @@
 # Changelog
 
+## tibble 3.3.1.9032
+
+### Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: <https://github.com/tidyverse/tibble/actions/runs/38014199307>
+
 ## tibble 3.3.1.9031
 
 ### Continuous integration
