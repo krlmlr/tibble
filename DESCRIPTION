@@ -52,7 +52,8 @@ Suggests:
     tidyr,
     withr
 VignetteBuilder: 
-    knitr
+    knitr,
+    rmarkdown
 Config/autostyle/rmd: false
 Config/autostyle/scope: line_breaks
 Config/autostyle/strict: true
