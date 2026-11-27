@@ -1,4 +1,6 @@
 test_that("output test", {
+  skip_if(getRversion() < "4.7.0", "str() output changed in R 4.7.0")
+
   expect_snapshot({
     str(as_tibble(mtcars), width = 70L)
 

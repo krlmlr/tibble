@@ -15,6 +15,9 @@
     Output
       Named chr "3 x 2"
        - attr(*, "names")= chr "A tibble"
+
+# dim_desc()
+
     Code
       dim_desc(trees)
     Output
