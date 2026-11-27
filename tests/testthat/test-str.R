@@ -1,17 +1,28 @@
-test_that("output test", {
-  skip_if(getRversion() < "4.7.0", "str() output changed in R 4.7.0")
-
+test_that("str() output stable across R versions", {
   expect_snapshot({
     str(as_tibble(mtcars), width = 70L)
 
     str(as_tibble(trees), width = 70L)
 
-    "No columns"
-    str(as_tibble(trees[integer()]), width = 70L)
-
     "Non-syntactic names"
     df <- tibble(!!!set_names(c(5, 3), c("mean(x)", "var(x)")))
     str(df, width = 28)
+  })
+
+  skip_if_not_installed("vctrs", "0.4.1.9000")
+
+  expect_snapshot({
+    trees2 <- as_unknown_rows(trees)
+    str(trees2, width = 70L)
+  })
+})
+
+test_that("str() output that changed in R 4.7.0", {
+  skip_if(getRversion() < "4.7.0", "str() output changed in R 4.7.0")
+
+  expect_snapshot({
+    "No columns"
+    str(as_tibble(trees[integer()]), width = 70L)
 
     str(as_tibble(df_all), width = 70L)
 
@@ -38,12 +49,5 @@ test_that("output test", {
     data <- map(data, as_tibble)
     nested_trees_tbl <- tibble(Volume, data)
     str(nested_trees_tbl, width = 70L)
-  })
-
-  skip_if_not_installed("vctrs", "0.4.1.9000")
-
-  expect_snapshot({
-    trees2 <- as_unknown_rows(trees)
-    str(trees2, width = 70L)
   })
 })
