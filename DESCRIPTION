@@ -58,10 +58,10 @@ Config/autostyle/scope: line_breaks
 Config/autostyle/strict: true
 Config/Needs/readme: data.table
 Config/Needs/website: tidyverse/tidytemplate
+Config/roxygen2/version: 8.1.1.9000
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Config/testthat/start-first: vignette-formats, as_tibble, add, invariants
 Config/usethis/last-upkeep: 2025-06-07
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-Config/roxygen2/version: 8.1.1.9000
